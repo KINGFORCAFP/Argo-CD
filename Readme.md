@@ -1,6 +1,12 @@
 Notas:
 
+--> Si no se cuenta con la instalación de Minikube se puede realizar con el paso a paso del siguiente link:
+https://minikube.sigs.k8s.io/docs/start/
+
 --> En la ruta cd /home/usuario/.kube se almacenan los config de los cluster que queremos visualizar en el cliente kubectl.
+
+--> Para el proceso de abreviación en consola se debe realizar los pasos que se encuentran en el siguiente link:
+https://www.cyberciti.biz/faq/add-bash-auto-completion-in-ubuntu-linux/
 
 --> Plugins para kubectl se encuentran en esta dirección:
 https://krew.sigs.k8s.io/docs/user-guide/setup/install/
@@ -11,7 +17,7 @@ instalar kubectl krew install ctx
 --> Para abreviar el comando de mostrar los namespace:
 instalar namespaces kubectl krew install ns
 
---> En el archivo ~/.bashrc se debe agregar los siguientes exporta para el funcionamiento del autocompletado en consola:
+--> En el archivo ~/.bashrc se debe agregar lo siguiente para el funcionamiento del autocompletado en consola:
 
 source /etc/profile.d/bash_completion.sh
 export KUBECONFIG=~/.kube/config:~/.kube/config-test.yaml:~/.kube/config-uat.yaml
@@ -47,5 +53,10 @@ k get pods -n argocd -w
 --> Para crear el servicio local de argo cd se utiliza el comando:
 kubectl -n argocd port-forward service/argocd-server 8085:443
 
+--> Ingresar por url: https://localhost:8085/
+
 --> Comando para generar contraseña de argo CD y poder ingresar por la url con el usuario admin:
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+--> Pagina de artefactos:
+https://artifacthub.io/packages/
