@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata: 
+  name: cafp-test
+  namespace: argocd
+spec: 
+  destination: 
+    namespace: cafp-test
+    name: "cluster-demo"
+  project: default
+  source: 
+    path: Argo-CD
+    repoURL: "https://github.com/KINGFORCAFP/Argo-CD.git"
+    targetRevision: master
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
